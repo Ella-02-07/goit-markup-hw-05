@@ -103,6 +103,7 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav .link:hover,
@@ -112,6 +113,23 @@ img {
 
 .site-nav .link.current {
   color: var(--accent-color);
+}
+
+.item.current {
+  position: relative;
+}
+
+.link.current::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  display: inline-block;
+  width: 100%;
+  height: 4px;
+
+  background-color: var(--accent-color);
+  border-radius: 4px;
 }
 
 .contacts {
@@ -135,6 +153,7 @@ img {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-contact {
@@ -202,6 +221,7 @@ img {
   text-align: center;
   letter-spacing: 0.06em;
   border-radius: 4px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pointer {
@@ -369,6 +389,8 @@ img {
   border-radius: 50%;
   color: var(--color-svg-border);
   background-color: transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-social {
@@ -401,6 +423,7 @@ img {
   color: var(--color-svg-border);
   border: 1px solid var(--color-svg-border);
   border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon-svg-list {
@@ -453,6 +476,7 @@ img {
   font-style: normal;
   font-size: 14px;
   line-height: 1.7;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-address:hover,
@@ -465,6 +489,7 @@ img {
   font-style: normal;
   font-size: 14px;
   line-height: 1.7;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-contacts:hover,
@@ -509,6 +534,8 @@ img {
   border-radius: 50%;
   color: var(--element-color);
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-icon-social {
@@ -522,6 +549,11 @@ img {
 }
 
 /* css portfolio */
+
+.item.current-portf {
+  position: relative;
+}
+
 .example {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -544,6 +576,9 @@ img {
   text-align: center;
   letter-spacing: 0.03em;
   border-radius: 4px;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-list:not(:first-child) {
@@ -566,6 +601,7 @@ img {
 
 .link-photo {
   display: block;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link-photo:hover,
@@ -605,13 +641,15 @@ img {
 
 .thumb-photo {
   position: relative;
+  overflow: hidden;
 }
 .desc-photo {
   position: absolute;
   left: 0;
   bottom: 0;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   color: var(--element-color);
-  opacity: 0;
   background-color: rgba(33, 150, 243, 0.9);
   padding: 63px 24px;
   font-weight: 400;
@@ -620,7 +658,7 @@ img {
 }
 
 .link-photo:hover .desc-photo {
-  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Модальне вікно */
@@ -631,17 +669,40 @@ img {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.5);
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  /* transform: translate(-50%, -50%); */
   width: 528px;
   height: 581px;
-
   background-color: var(--element-color);
   border-radius: 4px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 1px 3px rgba(0, 0, 0, 0.12);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button-close {
+  display: flex;
+  padding: 0;
+  margin: 8px 8px 543px 490px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: #ffffff;
 }
