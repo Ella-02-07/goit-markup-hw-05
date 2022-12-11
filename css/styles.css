@@ -704,3 +704,59 @@ img {
   border-radius: 50%;
   background-color: #ffffff;
 }
+
+/* Form */
+.form {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 40px;
+  /* width: 528px;
+  height: 581px; */
+  /* padding: 40px 39px 50px 41px; */
+  outline: 1px solid red;
+}
+
+.form-title {
+  display: block;
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  margin-bottom: 12px;
+  padding-left: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-field label {
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: var(--descr-text-color);
+}
+
+.form-field input {
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+
+  /* padding: 12px; */
+}
+
+.form-field textarea {
+  height: 120px;
+  padding: 12px 16px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+.form-field textarea::placeholder {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+  color: rgba(117, 117, 117, 0.5);
+}
